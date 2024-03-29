@@ -1,22 +1,37 @@
 package com;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class UserController {
 	
+	
 	@RequestMapping("/home")
-	public ModelAndView  load(){
+	public String home(Model model) {
+		System.out.println("This is a Home Page");
+		model.addAttribute("name", "Satish");
+		model.addAttribute("id", 101);
 		
-		  ModelAndView view = new ModelAndView() ;
-	  view.setViewName("index.jsp");
-	  return view;
-   }
+		List<String> friends=new ArrayList<String>();
+		friends.add("Ankit");
+		friends.add("Deepak");
+		friends.add("Junaid");
+		friends.add("Hitesh");
+		
+		model.addAttribute("fr", friends);
+		return "index";
+	}
 	
 	@RequestMapping("/about")
-	public String display() {
-		return "about.jsp";
+	public String about() {
+		System.out.println("This is a About Page");
+		return "about";
 	}
+	
+
 }
