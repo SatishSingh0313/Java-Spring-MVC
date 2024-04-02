@@ -30,7 +30,7 @@
   <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource"
 		name="ds">
 			<property name="driverClassName"
-				value="com.mysql.cj.jdbc.Driver" />
+				value="com.mysql.jdbc.Driver" />
 			<property name="url"
 				value="jdbc:mysql://localhost:3306/springmvcjava" />
 			<property name="username" value="root" />
@@ -38,9 +38,9 @@
    </bean>    
 		
 		
-  <bean class=" org.springframework.orm.hibernate5.LocalSessionFactoryBean"
+  <bean class="org.springframework.orm.hibernate5.LocalSessionFactoryBean"
   	  name="factory">
-  		<property name="dataSource" ref="ds"></property>
+  		<property name="dataSource" ref="ds" />
   		
   		<property name="hibernateProperties">
    		  <props>
@@ -50,11 +50,11 @@
          </props>
         </property>
  
- 	<property name="annotationClasses">
- 		<list>
- 			<value>com.model.User</value>
- 		</list>
-   </property>
+ 		<property name="annotationClasses">
+ 			<list>
+ 				<value>com.model.User</value>
+ 			</list>
+  	 	</property>
  
   </bean>
   
@@ -66,7 +66,7 @@
   
    <bean class="org.springframework.orm.hibernate5.HibernateTransactionManager"
  	  name="transactionManager">
-        <property name="sessionFactory" ref="factory"></property>
+        <property name="sessionFactory" ref="factory" />
   </bean>
    
 </beans>  

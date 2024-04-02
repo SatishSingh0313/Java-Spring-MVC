@@ -10,8 +10,6 @@ import com.model.User;
 @Repository
 public class UserDao {
 	
-	
-	
 	@Autowired
 	private HibernateTemplate hibernateTemplate;
 	
